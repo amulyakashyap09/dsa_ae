@@ -11,8 +11,12 @@
 
 **/
 
+// APPROACH : SORT && CHECK IF
+    // IF currCoinChange + 1 < coin return the currCoinChange+1
+    // ELSE add coin to the currCoinChange
+    // return currCoinChange + 1
 
-// O(NlogN) Time && O(1) Space
+// COMPLEXITY : O(NlogN) Time && O(1) Space
 
 function nonConstructibleChange(coins) {
   // Write your code here.

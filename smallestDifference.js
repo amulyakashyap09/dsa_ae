@@ -18,7 +18,16 @@
     [28, 26]
 **/
 
-// O(nlog(n) + mlog(m)) time | O(1) space
+// APPROACH : TWO POINTER &&
+  // SORT BOTH ARRAYS first
+  // Take two pointers at starting of both array
+  // check if pointers are less array length respectively
+  // if point1 elem < pointer2 elem then calc diff and increase pointer1
+  // if point2 elem < pointer1 elem then calc diff and increase pointer2
+  // else return the pair
+  // now, check if diff < smallest, make the smallest = diff
+
+// COMPLEXITY : O(nlog(n) + mlog(m)) time | O(1) space
 
 function smallestDifference(arrayOne, arrayTwo) {
   // Write your code here.
