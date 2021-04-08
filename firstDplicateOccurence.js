@@ -1,3 +1,5 @@
+// COMPLEXITY : O(n) time & space both
+
 function firstDuplicateValue(array) {
   // Write your code here.
 	let indexMap = {};
