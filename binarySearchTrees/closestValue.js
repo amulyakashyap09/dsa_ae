@@ -1,3 +1,24 @@
+/** 
+Find Closest Value In BST
+      Write a function that takes in a Binary Search Tree (BST) and a target
+      integer value and returns the closest value to that target value contained
+      in the BST.
+    You can assume that there will only be one closest value.
+      Each BST node has an integer value, a
+      left child node, and a right child node. A node
+      is said to be a valid BST node if and only if it satisfies
+      the BST property: its value is strictly greater than the
+      values of every node to its left; its value is less than or
+      equal to the values of every node to its right; and its children nodes are
+      either valid
+      BST nodes themselves or None / null
+    Sample Input
+      tree = 10 / \ 5 15 / \ / \
+      2 5 13 22 / \ 1 14
+      target = 12
+    Sample Output
+      13
+**/
 // This is the class of the input tree. Do not edit.
 class BST {
   constructor(value) {
@@ -6,21 +27,23 @@ class BST {
     this.right = null;
   }
 }
-
-function traversal(node, target, min) {
-  if (node) {
-    if (node.left) {
-    } else if (node.right) {
-    } else {
-    }
+function traverse(tree, target, closest) {
+  if (tree === null) return closest;
+  if (Math.abs(target - closest) > Math.abs(target - tree.value)) {
+    closest = tree.value;
+  }
+  if (tree.value < target) {
+    return traverse(tree.right, target, closest);
+  } else if (tree.value > target) {
+    return traverse(tree.left, target, closest);
+  } else {
+    return closest;
   }
 }
 
 function findClosestValueInBst(tree, target) {
   // Write your code here.
-  const d1 = travelLeft(tree, target, Number.NEGATIVE_INFINITY);
-  const d2 = travelRight(tree, target, Number.NEGATIVE_INFINITY);
-  return d1 >= d2 ? d1 : d2;
+  return traverse(tree, target, tree.value);
 }
 
 // Do not edit the line below.
